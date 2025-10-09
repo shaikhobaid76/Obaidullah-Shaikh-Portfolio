@@ -12,8 +12,28 @@
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll('.tool-card, .cert-card');
+
+  // Intersection Observer for scroll animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 150); // delay each card slightly
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
 
 <body>
+    
     <!-- Background Elements -->
     <div class="cyber-bg"></div>
     <div class="grid-overlay"></div>
@@ -41,28 +61,29 @@
 
   <!-- Hero Section -->
 <section id="home" class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Obaidullah <span class="gradient-text">Shaikh</span></h1>
-            <h2>
-                <span class="typing-text" id="typingText">
-                    Certified Information Security Consultant
-                </span>
-            </h2>
-            <p>
-                I am a passionate Cybersecurity Enthusiast with hands-on experience in ethical hacking,
-                vulnerability assessment, and penetration testing. Skilled in tools like Nmap, Burp Suite,
-                Wireshark, and Nessus, I focus on identifying and mitigating security risks while strengthening
-                digital infrastructures. Certified as a CISC and currently pursuing CEH, I am committed to
-                continuous learning, exploring threat intelligence, and building secure, resilient systems for
-                the future.
-            </p>
+    <video autoplay muted loop class="hero-video">
+        <source src="./video/6.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay"></div>
 
-            <div class="btn-container">
-                <a href="./assets/resume/OBAIDULLAH_SHAIKH_RESUMEE.pdf" download="OBAIDULLAH_SHAIKH_RESUMEE.pdf" class="resume-btn">
-                    <i class="fas fa-download"></i> Download Resume
-                </a>
-            </div>
+    <div class="hero-content">
+        <h1>Obaidullah <span class="gradient-text">Shaikh</span></h1>
+        <h2>
+            <span class="typing-text" id="typingText">
+                Certified Information Security Consultant
+            </span>
+        </h2>
+        <p>
+            I am a passionate Cybersecurity Enthusiast with hands-on experience in ethical hacking,
+            vulnerability assessment, and penetration testing. Skilled in tools like Nmap, Burp Suite,
+            Wireshark, and Nessus, I focus on identifying and mitigating security risks while strengthening
+            digital infrastructures.
+        </p>
+        <div class="btn-container">
+            <a href="./assets/resume/OBAIDULLAH_SHAIKH_RESUMEE.pdf" download="OBAIDULLAH_SHAIKH_RESUMEE.pdf" class="resume-btn">
+                <i class="fas fa-download"></i> Download Resume
+            </a>
         </div>
     </div>
 </section>
@@ -144,6 +165,19 @@
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
+                        <div class="timeline-date"><i class="far fa-calendar"></i> june 2025 - sep 2025</div>
+                        <h3 class="timeline-title">Cyber Security Intern</h3>
+                        <div class="timeline-company"><i class="fas fa-building"></i> Cyberfort</div>
+                        <ul class="timeline-desc">
+                            <li>Engineered a Python-based CLI malware analysis tool capable of performing both static and dynamic analysis of malicious executables.</li>
+                            <li>Implemented automated hash generation, PE metadata extraction, YARA scanning, and process behavior tracking for accurate threat assessment.</li>
+                            <li>Conducted real-time malware behavior simulations in isolated environments to study payload execution and network activity.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
                         <div class="timeline-date"><i class="far fa-calendar"></i> April 2025 - May 2025</div>
                         <h3 class="timeline-title">Cyber Security Intern</h3>
                         <div class="timeline-company"><i class="fas fa-building"></i> Shadowfox</div>
@@ -175,53 +209,44 @@
     </section>
 
     <!-- Technical Tools Section -->
-    <section id="tools">
-        <div class="container">
-            <div class="section-title">
-                <h2>Technical Tools</h2>
-                <p>Technologies and platforms I use to secure digital environments.</p>
-            </div>
-            <div class="tools-grid"> <!-- Kali Linux -->
-                <div class="tool-card">
-                    <div class="tool-icon"> <img src="images/kali-linux.png" alt="Kali Linux Logo"
-                            style="width: 60px; height: 60px;"> </div>
-                    <h3>Kali Linux</h3>
-                    <p>Advanced penetration testing Linux distribution used for security assessments.</p>
-                </div> <!-- Metasploit -->
-                <div class="tool-card">
-                    <div class="tool-img"> <img src="images/metasploit.png" alt="Metasploit Logo"
-                            style="width: 60px; height: 60px;"> </div>
-                    <h3>Metasploit</h3>
-                    <p>Penetration testing framework for developing and executing exploit code.</p>
-                </div> <!-- Wireshark -->
-                <div class="tool-card">
-                    <div class="tool-img"> <img src="images/wireshark.png" alt="Wireshark Logo"
-                            style="width: 60px; height: 60px;"> </div>
-                    <h3>Wireshark</h3>
-                    <p>Network protocol analyzer for troubleshooting and communications development.</p>
-                </div> <!-- Nmap -->
-                <div class="tool-card">
-                    <div class="tool-img"> <img src="images/nmap.png" alt="Nmap Logo"
-                            style="width: 60px; height: 60px;"> </div>
-                    <h3>Nmap</h3>
-                    <p>Network discovery and security auditing tool for network exploration.</p>
-                </div> <!-- Nessus -->
-                <div class="tool-card">
-                    <div class="tool-icon"> <img src="images/nessus.png" alt="Nessus Logo"
-                            style="width: 60px; height: 60px;"> </div>
-                    <h3>Nessus</h3>
-                    <p>Vulnerability scanner to identify vulnerabilities, misconfigurations, and malware.</p>
-                </div> <!-- Burp Suite -->
-                <div class="tool-card">
-                    <div class="tool-img"> <img src="images/burpsuite.png" alt="Burp Suite Logo"
-                            style="width: 60px; height: 60px;"> </div>
-                    <h3>Burp Suite</h3>
-                    <p>Web application security testing platform with various penetration testing tools.</p>
-                </div>
-                
-            </div>
+   <section id="tools">
+  <div class="container">
+    <div class="section-title">
+      <h2>Technical Tools</h2>
+      <p>Technologies and platforms I use to secure digital environments.</p>
+    </div>
+
+<!-- =============================
+     🔥 TECHNICAL TOOLS SECTION
+============================= -->
+
+    <!-- 🔁 Auto Scroll Container -->
+    <div class="scroll-container">
+      <div class="scroll-content">
+        <!-- 👇 Duplicate content twice for infinite loop -->
+        <div class="tools-grid">
+          <div class="tool-card"><img src="images/kali-linux.png" alt="Kali Linux"><h3>Kali Linux</h3></div>
+          <div class="tool-card"><img src="images/metasploit.png" alt="Metasploit"><h3>Metasploit</h3></div>
+          <div class="tool-card"><img src="images/wireshark.png" alt="Wireshark"><h3>Wireshark</h3></div>
+          <div class="tool-card"><img src="images/nmap.png" alt="Nmap"><h3>Nmap</h3></div>
+          <div class="tool-card"><img src="images/nessus.png" alt="Nessus"><h3>Nessus</h3></div>
+          <div class="tool-card"><img src="images/burpsuite.png" alt="Burp Suite"><h3>Burp Suite</h3></div>
+          <div class="tool-card"><img src="images/nikto-logo.png" alt="Nikto"><h3>Nikto</h3></div>
         </div>
-    </section>
+        <!-- duplicate -->
+        <div class="tools-grid"><br>
+          <div class="tool-card"><img src="images/kali-linux.png" alt="Kali Linux"><h3>Kali Linux</h3></div>
+          <div class="tool-card"><img src="images/metasploit.png" alt="Metasploit"><h3>Metasploit</h3></div>
+          <div class="tool-card"><img src="images/wireshark.png" alt="Wireshark"><h3>Wireshark</h3></div>
+          <div class="tool-card"><img src="images/nmap.png" alt="Nmap"><h3>Nmap</h3></div>
+          <div class="tool-card"><img src="images/nessus.png" alt="Nessus"><h3>Nessus</h3></div>
+          <div class="tool-card"><img src="images/burpsuite.png" alt="Burp Suite"><h3>Burp Suite</h3></div>
+          <div class="tool-card"><img src="images/nikto-logo.png" alt="Nikto"><h3>Nikto</h3></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Certifications Section -->
 <section id="certifications">       
@@ -234,7 +259,7 @@
         <div class="certifications">
             <div class="cert-card" onclick="openModal(this)">
                 <img src="./images/CISC_Certificate.jpg" alt="CISC Certificate" class="cert-img">
-                <h3>CISC (Certified Information Security Consultant)</h3>
+                <h3>CISC Certified Information <br> Security Consultant</h3>
                 <div class="provider"><i class="fas fa-award"></i> Institute of Information Security - Thane</div>
                 <p class="short-text"></p>
                 <div class="full-text"></div>
@@ -242,7 +267,7 @@
 
             <div class="cert-card" onclick="openModal(this)">
                 <img src="./images/CEH_Certificate.jpg" alt="CEH Certificate" class="cert-img">
-                <h3>CEH V12 (Certified Ethical Hacker)</h3>
+                <h3> <center>CEH</center>  (Certified Ethical Hacker)</h3>
                 <div class="provider"><i class="fas fa-award"></i> EC Council</div>
                 <p class="short-text"></p>
                 <div class="full-text"></div>
@@ -250,7 +275,7 @@
 
             <div class="cert-card" onclick="openModal(this)">
                 <img src="./images/Cyberfort_Certificate.png" alt="CYBERFORT TECH — Certified Cyber Security Internship" class="cert-img">
-                <h3>Introduction to Cyber Security</h3>
+                <h3>Introduction to     <br>    Cyber Security</h3>
                 <div class="provider"><i class="fas fa-award"></i> Cyberfort</div>
                 <p class="short-text"></p>
                 <div class="full-text"></div>
@@ -258,7 +283,7 @@
             
             <div class="cert-card" onclick="openModal(this)">
                 <img src="./images/Shadowfox.png" alt="Shadowfox Completion Certificate" class="cert-img">
-                <h3>Shadowfox Completion Certificate</h3>
+                <h3>Shadowfox Internship  <br>  Completion Certificate</h3>
                 <div class="provider"><i class="fas fa-award"></i> Shadowfox</div>
                 <p class="short-text"></p>
                 <div class="full-text"></div>
@@ -266,7 +291,7 @@
 
             <div class="cert-card" onclick="openModal(this)">
                 <img src="./images/Cybersecurity_Awareness.png" alt="Introduction to Cyber Security" class="cert-img">
-                <h3>Introduction to Cyber Security</h3>
+                <h3>Introduction to <br> Cyber Security</h3>
                 <div class="provider"><i class="fas fa-award"></i> LinkedIn Learning </div>
                 <p class="short-text"></p>
                 <div class="full-text"></div>
@@ -290,7 +315,7 @@
            
              <div class="cert-card" onclick="openModal(this)">
                 <img src="./images/Cybersecurity_Awareness.png" alt="Introduction to Cyber Security" class="cert-img">
-                <h3>Introduction to Cyber Security</h3>
+                <h3>Introduction to <br> Cyber Security</h3>
                 <div class="provider"><i class="fas fa-award"></i> LinkedIn Learning </div>
                 <p class="short-text"></p>
                 <div class="full-text"></div>
@@ -393,7 +418,7 @@
         });
 
         // Terminal animation
-        const terminalContent = document.getElementById('terminalContent');
+       const terminalContent = document.querySelector(".terminal-content");
         const terminalLines = [
             { text: "obaidullah@cybersecurity:~$ whoami", delay: 500 },
             { text: ">> Cybersecurity Professional", delay: 1000 },
@@ -511,26 +536,6 @@
         // Check visibility on load and scroll
         window.addEventListener('load', checkTimelineVisibility);
         window.addEventListener('scroll', checkTimelineVisibility);
-
-        // Contact form submission
-        const contactForm = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
-
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // In a real implementation, you would send the form data to a server
-            // For this example, we'll just show the success message
-            successMessage.style.display = 'block';
-
-            // Reset form
-            contactForm.reset();
-
-            // Hide success message after 5 seconds
-            setTimeout(function () {
-                successMessage.style.display = 'none';
-            }, 5000);
-        });
 
         // Create particle background
         function createParticles() {
