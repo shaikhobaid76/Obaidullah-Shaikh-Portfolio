@@ -14,7 +14,7 @@
 </head>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll('.tool-card, .cert-card');
+  const elements = document.querySelectorAll('.tool-card, .cert-card, .project-card');
 
   // Intersection Observer for scroll animation
   const observer = new IntersectionObserver(entries => {
@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#tools">Technical Tools</a></li>
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -207,6 +208,58 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </div>
     </section>
+
+   <!-- Projects Section -->
+<section id="projects">
+    <div class="container">
+        <div class="section-title">
+            <h2>Projects</h2>
+            <p>Hands-on cybersecurity projects demonstrating my technical skills.</p>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="website-preview">
+                        <iframe 
+                            src="https://hidden-code-messenger.vercel.app/" 
+                            frameborder="0"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <div class="website-overlay">
+                            <div class="live-indicator">
+                                <span class="live-dot"></span>
+                                Live Preview
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Hidden Code Messenger</h3>
+                    <p>A secure messaging application with end-to-end encryption and self-destructing messages. Built with advanced security protocols to ensure privacy and confidentiality.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag" data-tech="HTML">HTML</span>
+                        <span class="tech-tag" data-tech="CSS">CSS</span>
+                        <span class="tech-tag" data-tech="JAVA SCRIPT">JAVA SCRIPT</span>
+                        <span class="tech-tag" data-tech="ENCRYPTION">ENCRYPTION</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://hidden-code-messenger.vercel.app/" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/shaikhobaid76/hidden-code-messenger" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add more project cards here as needed -->
+        </div>
+    </div>
+</section>
 
     <!-- Technical Tools Section -->
    <section id="tools">
