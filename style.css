@@ -794,39 +794,51 @@ section {
 ============================= */
 
 #projects {
-    padding: 100px 0;
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* horizontally center */
+  align-items: center;       /* vertically center */
+  padding: 100;
 }
+
+
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 40px;
-    padding: 0 15px;
-    max-width: 1400px;
-    margin-left: 1;
-    margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
+.projects-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
 .project-card {
-    background: var(--dark-gray);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 1px solid rgba(0, 255, 136, 0.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transform: translateY(30px);
-    position: relative;
-    margin: 0;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    will-change: transform;
-    isolation: isolate;
+  background: var(--dark-gray);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid rgba(0, 255, 136, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  transform: none;
+  position: relative;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
+  isolation: isolate;
+  width: 900px;
+  height: auto;
 }
 
 .project-card.visible {
@@ -1059,6 +1071,15 @@ section {
     }
 }
 
+/* Hide scrollbar for cleaner look */
+.projects-grid::-webkit-scrollbar {
+  display: none;
+}
+.projects-grid {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* =============================
    🌐 LIVE WEBSITE PREVIEW - FIXED
 ============================= */
@@ -1075,7 +1096,7 @@ section {
     -webkit-transform: translateZ(0);
     /* Fix for white line on left */
     margin: 0;
-    padding: 0;
+    padding: 190;
     border: none;
 }
 
