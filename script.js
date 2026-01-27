@@ -13,7 +13,7 @@ faviconLinks.forEach(link => {
 // Try to load favicon programmatically
 const testFavicon = new Image();
 testFavicon.onload = function() {
-    console.log("✅ Favicon image loaded successfully from: assets/images/favicon.png");
+    console.log("✅ Favicon image loaded successfully from: images/favicon.png");
     console.log("Image dimensions:", this.width + "x" + this.height);
 };
 testFavicon.onerror = function() {
@@ -22,9 +22,9 @@ testFavicon.onerror = function() {
     
     // Try different paths
     const paths = [
-        'assets/images/favicon.png',
-        './assets/images/favicon.png',
-        '/assets/images/favicon.png',
+        'images/favicon.png',
+        './images/favicon.png',
+        '/images/favicon.png',
         'images/favicon.png',
         './images/favicon.png',
         '/images/favicon.png'
